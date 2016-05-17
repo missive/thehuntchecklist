@@ -3,6 +3,7 @@ require_relative 'lib/assets'
 task :precompile do
   %w[
     assets/javascripts/base.js
+    assets/javascripts/application.js
     assets/stylesheets/application.css
   ].each do |path|
     File.unlink(path)

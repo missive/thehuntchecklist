@@ -40,3 +40,4 @@ html.className += ' chrome' if /Chrome/.test navigator.userAgent
 # HTML5 Shiv
 for elem in ['article', 'aside', 'canvas', 'details', 'figcaption', 'figure', 'footer', 'header', 'hgroup', 'mark', 'menu', 'nav', 'section', 'summary', 'time']
   document.createElement elem
+
