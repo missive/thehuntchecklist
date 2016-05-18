@@ -681,6 +681,9 @@ p {
   font-weight: bold;
   text-align: center; }
 
+.am:not(.selected), .pm:not(.selected) {
+  color: #ccc; }
+
 .thumbnail-uploader {
   width: 230px;
   height: 120px;
