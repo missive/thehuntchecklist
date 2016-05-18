@@ -88,9 +88,13 @@ p {
   border: 1px solid rgba(black, .1);
   box-shadow: 0 0 30px rgba(black, .05);
 }
-#thumbnail{
+
+.thumbnail {
   width: 100px;
   height: 100px;
+}
+
+.thumbnail-destination {
   background-position: center;
   background-size: cover;
 }

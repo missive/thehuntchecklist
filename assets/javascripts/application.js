@@ -1,5 +1,6 @@
 (function() {
   $(document).ready(function() {
+    var drop;
     $('#timezone').change(function() {
       var california, tomorrow;
       tomorrow = moment().add('days', 1).format("YYYY-MM-DD");
@@ -9,15 +10,29 @@
     if (typeof Intl.DateTimeFormat().resolvedOptions().timeZone !== 'undefined') {
       $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");
     }
-    return $("#thumbnail-input").change(function() {
+    drop = function(file) {
       var reader;
+      reader = new FileReader();
+      reader.onload = function(e) {
+        return $('.thumbnail-destination').attr('style', "background-image: url('" + e.target.result + "')").html('');
+      };
+      return reader.readAsDataURL(file);
+    };
+    $("#thumbnail-input").change(function() {
       if (this.files && this.files[0]) {
-        reader = new FileReader();
-        reader.onload = function(e) {
-          return $('#thumbnail').attr('style', "background-image: url('" + e.target.result + "')");
-        };
-        return reader.readAsDataURL(this.files[0]);
+        return drop(this.files[0]);
       }
+    });
+    $("a.thumbnail-uploader")[0].addEventListener("dragover", function(e) {
+      return e.preventDefault();
+    }, false);
+    $("a.thumbnail-uploader")[0].addEventListener("drop", function(e) {
+      e.preventDefault();
+      return drop(e.dataTransfer.files[0]);
+    }, false);
+    return $("a.thumbnail-uploader").click(function(e) {
+      e.preventDefault();
+      return $("#thumbnail-input").trigger('click');
     });
   });
 

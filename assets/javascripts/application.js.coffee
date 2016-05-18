@@ -10,12 +10,29 @@ $(document).ready(->
   unless typeof Intl.DateTimeFormat().resolvedOptions().timeZone is 'undefined'
     $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")
 
+  drop = (file)->
+    reader = new FileReader()
+    reader.onload = (e)->
+      $('.thumbnail-destination').attr('style', "background-image: url('#{e.target.result}')").html('')
+    reader.readAsDataURL(file);
+
   # Thumbnail
   $("#thumbnail-input").change(->
     if (this.files && this.files[0])
-      reader = new FileReader()
-      reader.onload = (e)->
-        $('#thumbnail').attr('style', "background-image: url('#{e.target.result}')")
-      reader.readAsDataURL(this.files[0]);
+      drop(this.files[0])
+  )
+
+  $("a.thumbnail-uploader")[0].addEventListener("dragover", (e) ->
+    e.preventDefault()
+  , false)
+
+  $("a.thumbnail-uploader")[0].addEventListener("drop",  (e) ->
+    e.preventDefault()
+    drop(e.dataTransfer.files[0])
+  , false)
+
+  $("a.thumbnail-uploader").click((e)->
+     e.preventDefault()
+     $("#thumbnail-input").trigger('click')
   )
 )
