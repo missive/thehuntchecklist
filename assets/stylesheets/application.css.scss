@@ -20,16 +20,7 @@ a {
   color: $blueColor;
   text-decoration: none;
   transition: color .15s ease-out;
-}
-
-// Layout --------------------------------------------------------------------
-.wrapper {
-  width: 85%;
-  max-width: 1080px;
-  margin: auto;
-}
-section {
-  margin: 10% 0;
+  outline: none;
 }
 
 // Typography -----------------------------------------------------------------
@@ -40,7 +31,9 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 56px;
+  color: $orangeColor;
+  font-size: 64px;
+  font-weight: 800;
   margin-bottom: .25em;
 }
 
@@ -55,37 +48,102 @@ h3 {
 
 p {
   color: rgba($textColor, .75);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.3;
 }
 
 .subhead {
+  margin-bottom: 1em;
+  color: rgba($textColor, .85);
   font-size: 24px;
-  color: rgba($textColor, .75);
+}
+
+.small {
+  color: rgba($textColor, .5);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+
+  a {
+    color: inherit;
+    border-bottom: 1px solid rgba($textColor, .25);
+    transition: all .15s;
+    
+    &:hover, &:focus { border-color: transparent }
+  }
 }
 
 .text-block {
   margin: 30px 0;
 }
 
-// Content --------------------------------------------------------------------
+// Layout --------------------------------------------------------------------
+.wrapper {
+  width: 80%;
+  max-width: 1080px;
+  margin: auto;
+}
+
+section {
+  margin: 10% 0;
+}
+
+section.hero {
+  margin: 0;
+  padding-top: 6.5%;
+  height: 90%;
+}
+
+// Time -----------------------------------------------------------------------
 #time-to-post {
-  color: #F76D47;
-  font-size: 120px;
-  font-weight: bold;
+  color: $orangeColor;
   text-align: center;
+
+  .hour {
+    margin-right: 8px;
+    font-size: 150px;
+    font-weight: 800;
+  }
+
+  .am, .pm {
+    display: block;
+    font-size: 60px;
+    font-weight: 900;
+    &:not(.selected) { color: rgba($textColor, .2) }
+  }
+
+  .am { margin-top: .175em }
 }
 
-.am:not(.selected), .pm:not(.selected){
-  color: #ccc;
+// Preview --------------------------------------------------------------------
+#thumbnail-input { opacity: 0 }
+.thumbnail {
+  background-position: center;
+  background-size: cover;
 }
-
 
 .thumbnail-uploader {
   width: 230px; height: 120px;
-  text-align: center;
   border: 2px dashed rgba($textColor, .35);
   border-radius: 6px;
+  text-align: center;
+  transition: border-color .15s;
+  
+  span {
+    color: rgba($textColor, .5);
+    font-size: 44px;
+    font-weight: 200;
+  }
+  
+  &:hover, &:focus {
+    border-color: rgba($textColor, .65);
+    span { color: rgba($textColor, .85) }
+  }
+}
+
+.thumbnail-feed {
+  width: 100px;
+  height: 100px;
 }
 
 .ph-feed {
@@ -94,12 +152,6 @@ p {
   box-shadow: 0 0 30px rgba(black, .05);
 }
 
-.thumbnail {
-  width: 100px;
-  height: 100px;
-}
 
-.thumbnail-destination {
-  background-position: center;
-  background-size: cover;
-}
+
+

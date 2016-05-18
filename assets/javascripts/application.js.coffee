@@ -1,6 +1,6 @@
 $(document).ready(->
   setThumbnail = (img)->
-    $('.thumbnail-destination').attr('style', "background-image: url('#{img}')").html('')
+    $('.thumbnail').attr('style', "background-image: url('#{img}')").html('')
 
   drop = (file)->
     reader = new FileReader()
@@ -16,7 +16,7 @@ $(document).ready(->
     california = moment.tz("#{tomorrow} 00:01", "America/Los_Angeles")
     time = california.clone().tz($(this).val()).format('LT').split(" ")
     $("#time-to-post").html(
-      "<span class='hour'>#{time[0]}</span><span class='am #{if time[1] is 'AM' then 'selected' else ''}'>AM</span><span class='pm #{if time[1] is 'PM' then 'selected' else ''}'>PM</span>"
+      "<div class='col'><span class='hour'>#{time[0]}</span></div><div class='col'><span class='am #{if time[1] is 'AM' then 'selected' else ''}'>AM</span><span class='pm #{if time[1] is 'PM' then 'selected' else ''}'>PM</span></div"
     )
   )
 

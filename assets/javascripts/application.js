@@ -2,7 +2,7 @@
   $(document).ready(function() {
     var drop, setThumbnail;
     setThumbnail = function(img) {
-      return $('.thumbnail-destination').attr('style', "background-image: url('" + img + "')").html('');
+      return $('.thumbnail').attr('style', "background-image: url('" + img + "')").html('');
     };
     drop = function(file) {
       var reader;
@@ -19,7 +19,7 @@
       tomorrow = moment().add('days', 1).format("YYYY-MM-DD");
       california = moment.tz(tomorrow + " 00:01", "America/Los_Angeles");
       time = california.clone().tz($(this).val()).format('LT').split(" ");
-      return $("#time-to-post").html("<span class='hour'>" + time[0] + "</span><span class='am " + (time[1] === 'AM' ? 'selected' : '') + "'>AM</span><span class='pm " + (time[1] === 'PM' ? 'selected' : '') + "'>PM</span>");
+      return $("#time-to-post").html("<div class='col'><span class='hour'>" + time[0] + "</span></div><div class='col'><span class='am " + (time[1] === 'AM' ? 'selected' : '') + "'>AM</span><span class='pm " + (time[1] === 'PM' ? 'selected' : '') + "'>PM</span></div");
     });
     $("#thumbnail-input").change(function() {
       if (this.files && this.files[0]) {
