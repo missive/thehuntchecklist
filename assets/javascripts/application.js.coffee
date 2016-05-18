@@ -1,24 +1,23 @@
 $(document).ready(->
-  # When to post your product
-
-  if localStorage.getItem("firstComment")
-    $("#first-comment").val(localStorage.getItem("firstComment"))
-
-  $('#timezone').change(->
-    tomorrow   = moment().add('days', 1).format("YYYY-MM-DD")
-    california = moment.tz("#{tomorrow} 00:01", "America/Los_Angeles")
-    $("#time-to-post").html(
-      california.clone().tz($('#timezone').val()).format('LT')
-    )
-  )
-  unless typeof Intl.DateTimeFormat().resolvedOptions().timeZone is 'undefined'
-    $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")
+  setThumbnail = (img)->
+    $('.thumbnail-destination').attr('style', "background-image: url('#{img}')").html('')
 
   drop = (file)->
     reader = new FileReader()
     reader.onload = (e)->
-      $('.thumbnail-destination').attr('style', "background-image: url('#{e.target.result}')").html('')
+      setThumbnail(e.target.result)
+      localStorage.setItem("thumbnail", e.target.result)
     reader.readAsDataURL(file);
+
+  # When to post your product
+  $('#timezone').change(->
+    localStorage.setItem("timezone", $(this).val())
+    tomorrow   = moment().add('days', 1).format("YYYY-MM-DD")
+    california = moment.tz("#{tomorrow} 00:01", "America/Los_Angeles")
+    $("#time-to-post").html(
+      california.clone().tz($(this).val()).format('LT')
+    )
+  )
 
   # Thumbnail
   $("#thumbnail-input").change(->
@@ -43,4 +42,18 @@ $(document).ready(->
   $("#first-comment").on('change keyup paste', ->
     localStorage.setItem("firstComment", $(this).val())
   )
+
+  # LocalStorage
+  if localStorage.getItem("firstComment")
+    $("#first-comment").val(localStorage.getItem("firstComment"))
+
+  if localStorage.getItem("thumbnail")
+    setThumbnail(localStorage.getItem("thumbnail"))
+
+  if localStorage.getItem("timezone")
+    $('#timezone').val(localStorage.getItem("timezone")).trigger("change")
+
+  unless localStorage.getItem("timezone")
+    unless typeof Intl.DateTimeFormat().resolvedOptions().timeZone is 'undefined'
+      $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")
 )
