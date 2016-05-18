@@ -19,7 +19,7 @@
       tomorrow = moment().add('days', 1).format("YYYY-MM-DD");
       california = moment.tz(tomorrow + " 00:01", "America/Los_Angeles");
       time = california.clone().tz($(this).val()).format('LT').split(" ");
-      return $("#time-to-post").html("<span>" + time[0] + "</span> <span>" + time[1] + "</span>");
+      return $("#time-to-post").html("<span class='hour'>" + time[0] + "</span><span class='am " + (time[1] === 'AM' ? 'selected' : '') + "'>AM</span><span class='pm " + (time[1] === 'PM' ? 'selected' : '') + "'>PM</span>");
     });
     $("#thumbnail-input").change(function() {
       if (this.files && this.files[0]) {

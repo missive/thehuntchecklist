@@ -16,7 +16,7 @@ $(document).ready(->
     california = moment.tz("#{tomorrow} 00:01", "America/Los_Angeles")
     time = california.clone().tz($(this).val()).format('LT').split(" ")
     $("#time-to-post").html(
-      "<span>#{time[0]}</span> <span>#{time[1]}</span>"
+      "<span class='hour'>#{time[0]}</span><span class='am #{if time[1] is 'AM' then 'selected' else ''}'>AM</span><span class='pm #{if time[1] is 'PM' then 'selected' else ''}'>PM</span>"
     )
   )
 
