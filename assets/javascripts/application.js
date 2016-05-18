@@ -14,11 +14,12 @@
       return reader.readAsDataURL(file);
     };
     $('#timezone').change(function() {
-      var california, tomorrow;
+      var california, time, tomorrow;
       localStorage.setItem("timezone", $(this).val());
       tomorrow = moment().add('days', 1).format("YYYY-MM-DD");
       california = moment.tz(tomorrow + " 00:01", "America/Los_Angeles");
-      return $("#time-to-post").html(california.clone().tz($(this).val()).format('LT'));
+      time = california.clone().tz($(this).val()).format('LT').split(" ");
+      return $("#time-to-post").html("<span>" + time[0] + "</span> <span>" + time[1] + "</span>");
     });
     $("#thumbnail-input").change(function() {
       if (this.files && this.files[0]) {

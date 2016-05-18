@@ -14,8 +14,9 @@ $(document).ready(->
     localStorage.setItem("timezone", $(this).val())
     tomorrow   = moment().add('days', 1).format("YYYY-MM-DD")
     california = moment.tz("#{tomorrow} 00:01", "America/Los_Angeles")
+    time = california.clone().tz($(this).val()).format('LT').split(" ")
     $("#time-to-post").html(
-      california.clone().tz($(this).val()).format('LT')
+      "<span>#{time[0]}</span> <span>#{time[1]}</span>"
     )
   )
 
