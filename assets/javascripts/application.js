@@ -1,6 +1,9 @@
 (function() {
   $(document).ready(function() {
     var drop;
+    if (localStorage.getItem("firstComment")) {
+      $("#first-comment").val(localStorage.getItem("firstComment"));
+    }
     $('#timezone').change(function() {
       var california, tomorrow;
       tomorrow = moment().add('days', 1).format("YYYY-MM-DD");
@@ -30,9 +33,12 @@
       e.preventDefault();
       return drop(e.dataTransfer.files[0]);
     }, false);
-    return $("a.thumbnail-uploader").click(function(e) {
+    $("a.thumbnail-uploader").click(function(e) {
       e.preventDefault();
       return $("#thumbnail-input").trigger('click');
+    });
+    return $("#first-comment").on('change keyup paste', function() {
+      return localStorage.setItem("firstComment", $(this).val());
     });
   });
 

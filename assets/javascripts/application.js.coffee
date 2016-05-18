@@ -1,5 +1,9 @@
 $(document).ready(->
   # When to post your product
+
+  if localStorage.getItem("firstComment")
+    $("#first-comment").val(localStorage.getItem("firstComment"))
+
   $('#timezone').change(->
     tomorrow   = moment().add('days', 1).format("YYYY-MM-DD")
     california = moment.tz("#{tomorrow} 00:01", "America/Los_Angeles")
@@ -34,5 +38,9 @@ $(document).ready(->
   $("a.thumbnail-uploader").click((e)->
      e.preventDefault()
      $("#thumbnail-input").trigger('click')
+  )
+
+  $("#first-comment").on('change keyup paste', ->
+    localStorage.setItem("firstComment", $(this).val())
   )
 )
