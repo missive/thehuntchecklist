@@ -6,8 +6,13 @@ task :precompile do
     assets/javascripts/application.js
     assets/stylesheets/application.css
   ].each do |path|
+    tmp = File.read(path)
     File.unlink(path)
     puts "Compiling #{path}..."
-    File.write(path, ASSETS[path])
+    begin
+      File.write(path, ASSETS[path])
+    rescue
+      File.write(path, tmp)
+    end
   end
 end
