@@ -1,4 +1,5 @@
 //= require_tree ./base
+//= require_tree ./components
 //= require_self
 
 // Imports -------------------------------------------------------------------
@@ -27,29 +28,31 @@ a {
 h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: .1em;
-  margin-bottom: 0.75em;
 }
 
 h1 {
+  margin-bottom: .25em;
   color: $orangeColor;
   font-size: 64px;
   font-weight: 800;
-  margin-bottom: .25em;
 }
 
 h2 {
+  margin-bottom: .75em;
   font-size: 24px;
 }
 
 h3 {
+  margin-bottom: 1em;
   font-size: 14px;
   letter-spacing: .125em;
 }
 
-p {
-  color: rgba($textColor, .75);
-  font-size: 16px;
-  line-height: 1.3;
+h4 {
+  margin-bottom: .75em;
+  color: rgba($textColor, .5);
+  font-size: 12px;
+  letter-spacing: .125em;
 }
 
 .subhead {
@@ -58,7 +61,7 @@ p {
   font-size: 24px;
 }
 
-.small {
+.subhead-small {
   color: rgba($textColor, .5);
   font-size: 12px;
   letter-spacing: .1em;
@@ -73,8 +76,26 @@ p {
   }
 }
 
+p {
+  color: rgba($textColor, .75);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.text-small {
+  color: rgba($textColor, .5);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
 .text-block {
-  margin: 30px 0;
+  margin: 35px 0;
+}
+
+.tips {
+  max-width: 400px;
+  list-style: none;
+  li { margin: .5em 0;}
 }
 
 // Layout --------------------------------------------------------------------
@@ -85,7 +106,7 @@ p {
 }
 
 section {
-  margin: 10% 0;
+  margin: 20% 0;
 }
 
 section.hero {
@@ -162,115 +183,41 @@ section.hero {
   }
 }
 
-.ph-feed {
-  position: relative;
+// Content --------------------------------------------------------------------
+.step-3 {
+  margin-bottom: 10%;
+}
+.content-examples {
   width: 100%;
-  border: 1px solid rgba(black, .1);
-  border-bottom: 0;
-  box-shadow: 0 0 30px rgba(black, .05);
+  padding: 1em;
+  border: 1px solid rgba($textColor, .2);
+  border-top-color: rgba($textColor, .25);
+  border-radius: 4px;
+  resize: none;
+  color: rgba($textColor, .75);
+}
 
-  &:after {
+// Finale ---------------------------------------------------------------------
+.finale {
+  margin: 0;
+
+  .wrapper { padding: 10% 0 5%; }
+  blockquote {
+    margin: 0;
+    color: #67696C;
+    font-size: 36px;
+    font-weight: 300;
+  }
+  
+  &:before, &:after {
     content: "";
-    position: absolute;
-    bottom: -20px; left: -20px; right: -20px;
-    height: 180px;
-    background-image: linear-gradient(to bottom, rgba(#fff, 0) 0, rgba(#fff, 1) 75%);
+    display: block;
+    width: 90%;
+    margin: auto;
+    border-top: 1px solid rgba($textColor, .1);
   }
 }
 
-.ph-feed-topbar {
-  margin: 0 20px;
-  padding: 15px 0;
-  border-bottom: 1px solid #f2f2f2;
-  .col { vertical-align: middle }
-}
-
-.ph-feed-block {
-  position: relative;
-  list-style: none;
-  padding: 25px;
-
-  & + .ph-feed-block { border-top: 1px solid #f2f2f2 }
-  .ph-thumbnail { margin-right: 25px }
-  .ph-meta {
-    position: absolute;
-    right: 25px; bottom: 26px; left: 130px;
-  }
-  .ph-topics a + a { margin-left: .3em }
-}
-
-.ph-title {
-  color: #000;
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: .2px;
-  line-height: 24px;
-}
-
-.ph-subtitle {
-  margin-top: 4px;
-  color: #999;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-.ph-content > * { display: block }
-
-.ph-secondary, .ph-button {
-  font-size: 12px;
-  letter-spacing: .6px;
-  line-height: 16px;
-  text-transform: uppercase;
-}
-
-a.ph-secondary {
-  color: #999;
-  &:hover, &:focus { text-decoration: underline }
-}
-
-.ph-category {
-  padding: 0 .5em;
-  color: #999;
-  &.selected { color: #000 }
-  &:first-of-type { border-right: 1px solid #f2f2f2 }
-  & + .ph-category { padding-left: 0.25em }
-}
-
-.ph-button {
-  position: relative;
-  display: inline-block;
-  height: 24px;
-  padding: 0 8px;
-  border: 1px solid #f2f2f2;
-  border-radius: 3px;
-  color: #999;
-  font-weight: 400;
-  line-height: 24px;
-  &:first-of-type { color: #000; }
-  & + .ph-button { margin-left: 10px }
-  &:hover { background-color: #f2f2f2 }
-  &:active { top: 1px }
-}
-
-.ph-button-secondary {
-  background-color: #f2f2f2;
-  &:hover { background-color: #ededed }
-}
-
-.ph-icon {
-  display: inline-block;
-  position: relative;
-  top: -1px;
-  width: 15px; height: 15px;
-  vertical-align: middle;
-}
-
-.ph-icon-arrow {
-  background: transparent url(https://s3.producthunt.com/static/upvote-burst-white.png) no-repeat;
-  background-size: 315px 15px;
-}
-
-.ph-icon-comment {
-  background: transparent url(https://cldup.com/Zuq7zm-zal.png) no-repeat;
-  background-size: 15px 15px;
+footer {
+  padding: 2em 0;
 }
