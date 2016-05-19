@@ -33,7 +33,7 @@ h1, h2, h3, h4 {
 
 h1 {
   margin-bottom: .25em;
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 800;
 }
 
@@ -107,13 +107,14 @@ p {
 
 // Layout --------------------------------------------------------------------
 .wrapper {
-  width: 80%;
+  width: 85%;
   max-width: 1140px;
   margin: auto;
 }
 
 section {
   margin: 20% 0;
+  overflow: hidden;
 }
 
 .hero {
@@ -148,6 +149,7 @@ section {
   .hour {
     margin-right: 8px;
     font-size: 150px;
+    font-size: 12vw;
     font-weight: 800;
     color: $orangeColor;
     background: -webkit-linear-gradient(left, #F56F4B, #FC9644);
@@ -159,6 +161,7 @@ section {
     display: block;
     color: rgba($textColor, .2);
     font-size: 60px;
+    font-size: 4.8vw;
     font-weight: 900;
 
     &.selected {
@@ -173,7 +176,7 @@ section {
 }
 
 // Preview --------------------------------------------------------------------
-#thumbnail-input { opacity: 0 }
+#thumbnail-input { opacity: 0; height: 0; position: absolute; }
 .thumbnail {
   background-position: center;
   background-size: cover;
@@ -256,4 +259,24 @@ section {
 
 footer {
   padding: 2em 0;
+}
+
+// Media Queries --------------------------------------------------------------
+@media (max-width: 800px) {
+  .col-content, .col-feature { width: 100% }
+  .col-content { padding-right: 0 }
+
+  .hero .logo { font-size: 12.5vw }
+
+  #time-to-post {
+    .hour { font-size: 30vw }
+    .am, .pm { font-size: 12vw }
+  }
+}
+
+@media (max-width: 500px) {
+  .col-content h2 .emoji-bullet {
+    display: block;
+    margin: 0 0 .5em;
+  }
 }
