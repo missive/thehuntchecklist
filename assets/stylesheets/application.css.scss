@@ -71,7 +71,7 @@ h4 {
     color: inherit;
     border-bottom: 1px solid rgba($textColor, .25);
     transition: all .15s;
-    
+
     &:hover, &:focus { border-color: transparent }
   }
 }
@@ -116,15 +116,30 @@ section {
   margin: 20% 0;
 }
 
-section.hero {
+.hero {
   margin: 0;
   padding-top: 6.5%;
-  height: 90%;
+  height: 80%;
 }
 
-.step .wrapper > .col-50:first-child {
-  padding-right: 10%;
+.step-1 {
+  margin-top: 10%;
 }
+
+.col-content { padding-right: 10% }
+.col-feature { margin-top: 42px }
+
+.col-content h2 {
+  position: relative;
+  .emoji-bullet {
+    display: inline-block;
+    width: 30px;
+    margin-left: -40px;
+    margin-right: 10px;
+    text-align: center;
+  }
+}
+
 
 // Time -----------------------------------------------------------------------
 #time-to-post {
@@ -145,7 +160,7 @@ section.hero {
     color: rgba($textColor, .2);
     font-size: 60px;
     font-weight: 900;
-    
+
     &.selected {
       color: $orangeColor;
       background: -webkit-linear-gradient(left, #FC9644, #FFAA40);
@@ -192,7 +207,7 @@ section.hero {
 
 .thumbnail-main {
   .thumbnail { border-radius: 6px }
-  
+
 }
 
 .thumbnail-feed {
@@ -206,13 +221,10 @@ section.hero {
   }
 }
 
-.ph-feed { margin-top: 42px }
-
 // Content --------------------------------------------------------------------
 .step-3 { margin-bottom: 10% }
 .content-examples {
   width: 100%;
-  margin-top: 42px;
   padding: 1em;
   border: 1px solid rgba($textColor, .2);
   border-top-color: rgba($textColor, .25);
@@ -232,7 +244,7 @@ section.hero {
     font-size: 36px;
     font-weight: 300;
   }
-  
+
   &:before, &:after {
     content: "";
     display: block;

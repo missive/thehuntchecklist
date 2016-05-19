@@ -840,13 +840,28 @@ p {
 section {
   margin: 20% 0; }
 
-section.hero {
+.hero {
   margin: 0;
   padding-top: 6.5%;
-  height: 90%; }
+  height: 80%; }
 
-.step .wrapper > .col-50:first-child {
+.step-1 {
+  margin-top: 10%; }
+
+.col-content {
   padding-right: 10%; }
+
+.col-feature {
+  margin-top: 42px; }
+
+.col-content h2 {
+  position: relative; }
+  .col-content h2 .emoji-bullet {
+    display: inline-block;
+    width: 30px;
+    margin-left: -40px;
+    margin-right: 10px;
+    text-align: center; }
 
 #time-to-post {
   text-align: center; }
@@ -921,15 +936,11 @@ section.hero {
     -o-object-fit: cover;
        object-fit: cover; }
 
-.ph-feed {
-  margin-top: 42px; }
-
 .step-3 {
   margin-bottom: 10%; }
 
 .content-examples {
   width: 100%;
-  margin-top: 42px;
   padding: 1em;
   border: 1px solid rgba(52, 54, 58, 0.2);
   border-top-color: rgba(52, 54, 58, 0.25);
