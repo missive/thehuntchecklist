@@ -255,9 +255,9 @@ section {
 .finale {
   margin: 0;
 
-  .wrapper { padding: 10% 0 5%; }
+  .wrapper { padding: 7.5% 0; }
   blockquote {
-    margin: 0;
+    margin: .5em 0 1em;
     color: #1B1C1D;
     font-size: 36px;
     font-weight: 300;
@@ -271,8 +271,7 @@ section {
     border-top: 1px solid rgba($textColor, .1);
   }
   
-  .shares {
-    margin-top: 1.5em;
+  .share-group {
     .share-link {
       display: inline-block;
       margin: 0 1em;

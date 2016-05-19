@@ -1080,9 +1080,9 @@ section {
 .finale {
   margin: 0; }
   .finale .wrapper {
-    padding: 10% 0 5%; }
+    padding: 7.5% 0; }
   .finale blockquote {
-    margin: 0;
+    margin: .5em 0 1em;
     color: #1B1C1D;
     font-size: 36px;
     font-weight: 300; }
@@ -1092,13 +1092,11 @@ section {
     width: 90%;
     margin: auto;
     border-top: 1px solid rgba(52, 54, 58, 0.1); }
-  .finale .shares {
-    margin-top: 1.5em; }
-    .finale .shares .share-link {
-      display: inline-block;
-      margin: 0 1em; }
-      .finale .shares .share-link img {
-        width: 25px; }
+  .finale .share-group .share-link {
+    display: inline-block;
+    margin: 0 1em; }
+    .finale .share-group .share-link img {
+      width: 25px; }
   .finale .share-link {
     opacity: .65;
     -webkit-transition: opacity 0.15s cubic-bezier(0.25, 0, 0.25, 1);
