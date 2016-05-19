@@ -32,7 +32,7 @@
   </div>
 </section>
 
-<section class="row step-1">
+<section class="row step step-1">
   <div class="wrapper columns">
     <div class="col-50">
       <h2>Submit early</h2>
@@ -463,11 +463,11 @@
   </div>
 </section>
 
-<section class="row step-2">
+<section class="row step step-2">
   <div class="wrapper columns">
     <div class="col-50">
       <h2>Make it stand out</h2>
-      <p>Upload your product thumbnail and evaluate it in the context of the Product Hunt homepage. This way, you'll be sure that even after it’s uploaded your thumbnail keeps it’s impact and stands out.</p>
+      <p>Upload your product thumbnail and evaluate it in the context of the PH homepage to make sure it stands out event at small size.</p>
       <div class="text-block">
         <h3>Preview your thumbnail</h3>
         <a class="thumbnail thumbnail-uploader flex-columns-center" href="javascript:">
@@ -480,23 +480,28 @@
       <div class="ph-feed">
         <div class="ph-feed-topbar columns-justify">
           <div class="ph-title col">Today</div>
-          <div class="col"><a href="#" class="ph-small">Popular</a><a href="#" class="ph-small">Newest</a></div>
+          <div class="col">
+            <a href="#" class="ph-category ph-secondary selected">Popular</a>
+            <a href="#" class="ph-category ph-secondary">Newest</a>
+          </div>
         </div>
         <div class="ph-feed-block columns">
           <div class="col ph-thumbnail">
             <img class="thumbnail thumbnail-feed" src="">
           </div>
           <div class="col">
-            <span class="ph-title">Your product name</span>
-            <span class="ph-subtitle">Your product name</span>
-            <div class="ph-controls columns-justify">
-              <div class="col">
-                <a href="#" class="ph-button ph-button-upvotes">500</a>
-                <a href="#" class="ph-button ph-button-comments">50</a>
-              </div>
-              <div class="col">
-                <a href="#" class="ph-button-topic">Topic</a>
-              </div>
+            <div>
+              <div class="ph-title">Your product name</div>
+              <span class="ph-subtitle">Product tagline (max of 60 characters, including spaces)</span>
+            </div>
+          </div>
+          <div class="ph-meta columns-justify">
+            <div class="col">
+              <a href="#" class="ph-button ph-button-upvotes flex-columns"><div>500</div></a>
+              <a href="#" class="ph-button ph-button-comments flex-columns">50</a>
+            </div>
+            <div class="col">
+              <a href="#" class="ph-button ph-button-secondary">Topic</a>
             </div>
           </div>
         </div>
@@ -505,7 +510,7 @@
   </div>
 </section>
 
-<section class="row step-3">
+<section class="row step step-3">
   <div class="wrapper columns">
     <div class="col-50">
       <h2>Prepare your content</h2>
