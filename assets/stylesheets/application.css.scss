@@ -12,7 +12,7 @@ h1, h2, h3, h4, ul, p { margin: 0; padding: 0 }
 html, body { width: 100%; height: 100% }
 
 body {
-  font-family: 'Proxima Nova', Helvetica Neue, Arial, sans-serif;
+  font-family: $fontStack;
   font-size: 14px;
 //  -webkit-font-smoothing: antialiased;
 }
@@ -29,12 +29,14 @@ h1, h2, h3, h4 {
   color: #1B1C1D;
   letter-spacing: .1em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 h1 {
   margin-bottom: .25em;
+  font-family: 'ars-maquette-pro', $fontStack;
   font-size: 72px;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 h2 {
@@ -119,12 +121,12 @@ section {
 
 .hero {
   margin: 0;
-  padding-top: 6.5%;
-  height: 66%;
+  padding: 6.5% 0;
+  height: 75%;
 }
 
 .step-1 {
-  margin-top: 10%;
+  margin-top: 0;
 }
 
 .col-content { padding-right: 10% }
@@ -141,6 +143,11 @@ section {
   }
 }
 
+// Hero -----------------------------------------------------------------------
+.hero {
+  background: url(../images/hero-bg.png) top center repeat;
+  background-size: 1440px 660px;
+}
 
 // Time -----------------------------------------------------------------------
 #time-to-post {
@@ -163,6 +170,7 @@ section {
     font-size: 60px;
     font-size: 4.8vw;
     font-weight: 900;
+    line-height: 1;
 
     &.selected {
       color: $orangeColor;
@@ -172,7 +180,7 @@ section {
     }
   }
 
-  .am { margin-top: .175em }
+  .am { margin-top: .475em }
 }
 
 // Preview --------------------------------------------------------------------
