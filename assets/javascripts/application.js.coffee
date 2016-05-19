@@ -57,6 +57,8 @@ $(document).ready(->
   unless localStorage.getItem("timezone")
     unless typeof Intl is 'undefined'
       $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")
+    else
+      $('#timezone').val(moment.tz.guess()).trigger("change")
 
   $('#facebook-link').click ->
     window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436')

@@ -52,6 +52,8 @@
     if (!localStorage.getItem("timezone")) {
       if (typeof Intl !== 'undefined') {
         $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");
+      } else {
+        $('#timezone').val(moment.tz.guess()).trigger("change");
       }
     }
     $('#facebook-link').click(function() {
