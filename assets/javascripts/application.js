@@ -51,15 +51,9 @@
     }
     if (!localStorage.getItem("timezone")) {
       if (typeof Intl.DateTimeFormat().resolvedOptions().timeZone !== 'undefined') {
-        $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");
+        return $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");
       }
     }
-    $('#facebook-link').click(function() {
-      return window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436');
-    });
-    return $('#google-link').click(function() {
-      return window.open("https://plus.google.com/share?url=" + encodeURI('http://thehuntchecklist.com/'), 'google-share-dialog', 'width=626,height=436');
-    });
   });
 
 }).call(this);
