@@ -26,13 +26,13 @@ a {
 
 // Typography -----------------------------------------------------------------
 h1, h2, h3, h4 {
-  text-transform: uppercase;
+  color: #1B1C1D;
   letter-spacing: .1em;
+  text-transform: uppercase;
 }
 
 h1 {
   margin-bottom: .25em;
-  color: $orangeColor;
   font-size: 64px;
   font-weight: 800;
 }
@@ -82,6 +82,13 @@ p {
   line-height: 1.3;
 }
 
+.logo {
+  color: $orangeColor;
+  background: -webkit-linear-gradient(left, #F56F4B, #FFAA40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-small {
   color: rgba($textColor, .5);
   font-size: 12px;
@@ -121,20 +128,30 @@ section.hero {
 
 // Time -----------------------------------------------------------------------
 #time-to-post {
-  color: $orangeColor;
   text-align: center;
 
   .hour {
     margin-right: 8px;
     font-size: 150px;
     font-weight: 800;
+    color: $orangeColor;
+    background: -webkit-linear-gradient(left, #F56F4B, #FC9644);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .am, .pm {
     display: block;
+    color: rgba($textColor, .2);
     font-size: 60px;
     font-weight: 900;
-    &:not(.selected) { color: rgba($textColor, .2) }
+    
+    &.selected {
+      color: $orangeColor;
+      background: -webkit-linear-gradient(left, #FC9644, #FFAA40);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   .am { margin-top: .175em }
@@ -145,19 +162,26 @@ section.hero {
 .thumbnail {
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -2px; right: -2px; bottom: -2px; left: -2px;
+  transition: opacity .15s $easing;
+  &:hover { opacity: .75 }
 }
 
 .thumbnail-uploader {
+  position: relative;
   width: 230px; height: 120px;
   border: 2px dashed rgba($textColor, .35);
   border-radius: 6px;
   text-align: center;
-  transition: border-color .15s;
+  transition: border-color .15s $easing;
 
   span {
     color: rgba($textColor, .5);
     font-size: 44px;
     font-weight: 200;
+    transition: color .15s $easing;
   }
 
   &:hover, &:focus {
@@ -166,16 +190,15 @@ section.hero {
   }
 }
 
+.thumbnail-main {
+  .thumbnail { border-radius: 6px }
+  
+}
+
 .thumbnail-feed {
   position: relative;
   width: 80px; height: 80px;
   border-radius: 0;
-
-  .thumbnail {
-    position: absolute;
-    top: -2px; left: -2px;
-    width: 80px; height: 80px;
-  }
 
   img {
     height: 100%;
@@ -183,12 +206,13 @@ section.hero {
   }
 }
 
+.ph-feed { margin-top: 42px }
+
 // Content --------------------------------------------------------------------
-.step-3 {
-  margin-bottom: 10%;
-}
+.step-3 { margin-bottom: 10% }
 .content-examples {
   width: 100%;
+  margin-top: 42px;
   padding: 1em;
   border: 1px solid rgba($textColor, .2);
   border-top-color: rgba($textColor, .25);
