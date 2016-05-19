@@ -20,7 +20,7 @@ a {
   color: $blueColor;
   text-decoration: none;
   transition: color .15s ease-out;
-  outline: none;
+  &:link, &:hover, &:focus, &:active { outline: 0 }
 }
 
 // Typography -----------------------------------------------------------------
@@ -132,13 +132,13 @@ section.hero {
   border-radius: 6px;
   text-align: center;
   transition: border-color .15s;
-  
+
   span {
     color: rgba($textColor, .5);
     font-size: 44px;
     font-weight: 200;
   }
-  
+
   &:hover, &:focus {
     border-color: rgba($textColor, .65);
     span { color: rgba($textColor, .85) }
@@ -146,15 +146,36 @@ section.hero {
 }
 
 .thumbnail-feed {
-  width: 80px;
-  height: 80px;
+  position: relative;
+  width: 80px; height: 80px;
+  border-radius: 0;
+
+  .thumbnail {
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 80px; height: 80px;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .ph-feed {
+  position: relative;
   width: 100%;
   border: 1px solid rgba(black, .1);
+  border-bottom: 0;
   box-shadow: 0 0 30px rgba(black, .05);
 
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -20px; left: -20px; right: -20px;
+    height: 180px;
+    background-image: linear-gradient(to bottom, rgba(#fff, 0) 0, rgba(#fff, 1) 75%);
+  }
 }
 
 .ph-feed-topbar {
@@ -166,6 +187,7 @@ section.hero {
 
 .ph-feed-block {
   position: relative;
+  list-style: none;
   padding: 25px;
 
   & + .ph-feed-block { border-top: 1px solid #f2f2f2 }
@@ -174,16 +196,26 @@ section.hero {
     position: absolute;
     right: 25px; bottom: 26px; left: 130px;
   }
+  .ph-topics a + a { margin-left: .3em }
 }
 
 .ph-title {
+  color: #000;
   font-size: 20px;
   font-weight: 300;
   letter-spacing: .2px;
   line-height: 24px;
 }
 
-.ph-subtitle { color: #999 }
+.ph-subtitle {
+  margin-top: 4px;
+  color: #999;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.ph-content > * { display: block }
+
 .ph-secondary, .ph-button {
   font-size: 12px;
   letter-spacing: .6px;
@@ -191,14 +223,21 @@ section.hero {
   text-transform: uppercase;
 }
 
+a.ph-secondary {
+  color: #999;
+  &:hover, &:focus { text-decoration: underline }
+}
+
 .ph-category {
   padding: 0 .5em;
   color: #999;
   &.selected { color: #000 }
   &:first-of-type { border-right: 1px solid #f2f2f2 }
+  & + .ph-category { padding-left: 0.25em }
 }
 
 .ph-button {
+  position: relative;
   display: inline-block;
   height: 24px;
   padding: 0 8px;
@@ -206,10 +245,32 @@ section.hero {
   border-radius: 3px;
   color: #999;
   font-weight: 400;
+  line-height: 24px;
   &:first-of-type { color: #000; }
   & + .ph-button { margin-left: 10px }
+  &:hover { background-color: #f2f2f2 }
+  &:active { top: 1px }
 }
 
 .ph-button-secondary {
   background-color: #f2f2f2;
+  &:hover { background-color: #ededed }
+}
+
+.ph-icon {
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  width: 15px; height: 15px;
+  vertical-align: middle;
+}
+
+.ph-icon-arrow {
+  background: transparent url(https://s3.producthunt.com/static/upvote-burst-white.png) no-repeat;
+  background-size: 315px 15px;
+}
+
+.ph-icon-comment {
+  background: transparent url(https://cldup.com/Zuq7zm-zal.png) no-repeat;
+  background-size: 15px 15px;
 }

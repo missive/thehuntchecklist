@@ -66,6 +66,7 @@
 
 .flex-columns-stretch { align-items: stretch }
 .flex-columns-center { justify-content: center }
+.flex-inline { display: inline-flex; align-items: center }
 
 // Layout --------------------------------------------------------------------
 .v-centered, .v-centered-container:after { display: inline-block; vertical-align: middle }
