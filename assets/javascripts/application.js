@@ -50,7 +50,7 @@
       $('#timezone').val(localStorage.getItem("timezone")).trigger("change");
     }
     if (!localStorage.getItem("timezone")) {
-      if (typeof Intl.DateTimeFormat().resolvedOptions().timeZone !== 'undefined') {
+      if (typeof Intl !== 'undefined') {
         $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");
       }
     }
