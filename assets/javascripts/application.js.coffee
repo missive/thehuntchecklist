@@ -55,7 +55,7 @@ $(document).ready(->
     $('#timezone').val(localStorage.getItem("timezone")).trigger("change")
 
   unless localStorage.getItem("timezone")
-    unless typeof Intl.DateTimeFormat().resolvedOptions().timeZone is 'undefined'
+    unless typeof Intl is 'undefined'
       $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")
 
   $('#facebook-link').click ->
