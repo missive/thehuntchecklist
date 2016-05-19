@@ -108,6 +108,13 @@ p {
 }
 
 // Layout --------------------------------------------------------------------
+.topbar {
+  will-change: transform;
+  transform: translateY(-60px);
+  transition: transform .15s $easing;
+
+  &.show { transform: translateY(0); }
+}
 .wrapper {
   width: 85%;
   max-width: 1140px;
@@ -122,7 +129,7 @@ section {
 .hero {
   margin: 0;
   padding: 6.5% 0;
-  height: 75%;
+  height: 85%;
 }
 
 .step-1 {
@@ -251,7 +258,7 @@ section {
   .wrapper { padding: 10% 0 5%; }
   blockquote {
     margin: 0;
-    color: #67696C;
+    color: #1B1C1D;
     font-size: 36px;
     font-weight: 300;
   }
@@ -262,6 +269,26 @@ section {
     width: 90%;
     margin: auto;
     border-top: 1px solid rgba($textColor, .1);
+  }
+  
+  .shares {
+    margin-top: 1.5em;
+    .share-link {
+      display: inline-block;
+      margin: 0 1em;
+      img {
+        width: 25px;
+      }
+    }
+  }
+
+  .share-link {
+    opacity: .65;
+    transition: opacity .15s $easing;
+
+    &:hover, &:focus {
+      opacity: 1;
+    }
   }
 }
 
