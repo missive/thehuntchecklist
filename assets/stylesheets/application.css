@@ -1106,6 +1106,8 @@ section {
 
 footer {
   padding: 2em 0; }
+  footer img {
+    margin-bottom: 0.5em; }
 
 @media (max-width: 800px) {
   .col-content, .col-feature {
