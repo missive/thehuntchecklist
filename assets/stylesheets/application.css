@@ -842,7 +842,7 @@ section {
 .hero {
   margin: 0;
   padding-top: 6.5%;
-  height: 80%; }
+  height: 66%; }
 
 .step-1 {
   margin-top: 10%; }
@@ -977,6 +977,10 @@ footer {
   .col-content {
     padding-right: 0; }
 
+  .col-content h2 .emoji-bullet {
+    display: block;
+    margin: 0 0 .5em; }
+
   .hero .logo {
     font-size: 12.5vw; }
 
@@ -984,7 +988,3 @@ footer {
     font-size: 30vw; }
   #time-to-post .am, #time-to-post .pm {
     font-size: 12vw; } }
-@media (max-width: 500px) {
-  .col-content h2 .emoji-bullet {
-    display: block;
-    margin: 0 0 .5em; } }
