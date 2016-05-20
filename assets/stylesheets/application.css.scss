@@ -160,19 +160,17 @@ section {
 .box-white {
   position: relative;
   background-color: #fff;
-  border: 1px solid rgba(#000, .125);
-  box-shadow: 0 1px 1px rgba(#000, .05);
+  box-shadow: 0 0 0 1px rgba(#000, .065), 0 1px 1px rgba(#000, .05);
   border-radius: 6px;
-  transition: box-shadow .15s $easing, border-color .15s $easing;
+  will-change: box-shadow;
+  transition: box-shadow .15s $easing;
   
-  &:hover {
-    border-color: rgba(#000, .15);
-    box-shadow: 0 4px 12px rgba(#000, .075);
-  }
+  &:hover { box-shadow: 0 4px 12px rgba(#000, .125) }
+  &:active { box-shadow: 0 3px 9px rgba(#000, .125) }
   
   .box-media {
     width: 96px;
-    border-right: 1px solid rgba(#000, .1);
+    border-right: 1px solid rgba(#000, .075);
     img {
       display: block;
       width: 100%;
