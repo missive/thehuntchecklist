@@ -98,13 +98,7 @@ p {
 }
 
 .text-block {
-  margin: 35px 0;
-}
-
-.tips {
-  max-width: 400px;
-  list-style: none;
-  li { margin: .5em 0;}
+  margin: 36px 0;
 }
 
 // Layout --------------------------------------------------------------------
@@ -293,7 +287,6 @@ section {
 
 .thumbnail-main {
   .thumbnail { border-radius: 6px }
-
 }
 
 .thumbnail-feed {
@@ -305,6 +298,13 @@ section {
     height: 100%;
     object-fit: cover;
   }
+}
+
+.step-2 .tips { margin-top: -14px }
+.tips {
+  max-width: 400px;
+  ul { margin-left: 1.1em }
+  li { margin: .5em 0 }
 }
 
 // Content --------------------------------------------------------------------

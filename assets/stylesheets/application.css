@@ -816,7 +816,7 @@ a.ph-secondary {
   border-radius: 3px;
   color: #999;
   font-weight: 400;
-  line-height: 24px; }
+  line-height: 22px; }
   .ph-button:first-of-type {
     color: #000; }
   .ph-button + .ph-button {
@@ -931,13 +931,7 @@ p {
   line-height: 1.4; }
 
 .text-block {
-  margin: 35px 0; }
-
-.tips {
-  max-width: 400px;
-  list-style: none; }
-  .tips li {
-    margin: .5em 0; }
+  margin: 36px 0; }
 
 .topbar {
   will-change: transform;
@@ -1132,6 +1126,16 @@ section {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover; }
+
+.step-2 .tips {
+  margin-top: -14px; }
+
+.tips {
+  max-width: 400px; }
+  .tips ul {
+    margin-left: 1.1em; }
+  .tips li {
+    margin: 0.5em 0; }
 
 .content-examples {
   width: 100%;
