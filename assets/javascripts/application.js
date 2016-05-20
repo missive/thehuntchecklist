@@ -1,6 +1,8 @@
 (function() {
+  var slice = [].slice;
+
   $(document).ready(function() {
-    var drop, setThumbnail;
+    var drop, initScroll, onScroll, requestTick, setThumbnail, toggleTopbar, updateCheckpoint, updateScroll;
     setThumbnail = function(img) {
       return $('.thumbnail').attr('style', "background-image: url('" + img + "')").html('');
     };
@@ -81,9 +83,60 @@
     $('#facebook-link').click(function() {
       return window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436');
     });
-    return $('#google-link').click(function() {
+    $('#google-link').click(function() {
       return window.open("https://plus.google.com/share?url=" + encodeURI('http://thehuntchecklist.com/'), 'google-share-dialog', 'width=626,height=436');
     });
+    requestTick = function() {
+      var args, fn;
+      fn = arguments[0], args = 2 <= arguments.length ? slice.call(arguments, 1) : [];
+      if (this.ticking) {
+        return;
+      }
+      this.ticking = true;
+      return window.requestAnimationFrame((function(_this) {
+        return function() {
+          _this.ticking = false;
+          return fn.call.apply(fn, [_this].concat(slice.call(args)));
+        };
+      })(this));
+    };
+    initScroll = function() {
+      this.latestScrolled = window.pageYOffset;
+      this.$topbar = $('.topbar');
+      this.topbarCollapsed = void 0;
+      this.topbarCheckpoint = $('.hero').height() * 0.8;
+      updateScroll();
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('resize', onScroll);
+      return window.addEventListener('resize', updateCheckpoint);
+    };
+    updateCheckpoint = function() {
+      console.log('yo');
+      return this.topbarCheckpoint = $('.hero').height() * 0.8;
+    };
+    onScroll = function() {
+      this.latestScrolled = window.pageYOffset;
+      return requestTick(updateScroll);
+    };
+    updateScroll = function() {
+      return toggleTopbar();
+    };
+    toggleTopbar = function() {
+      if (this.latestScrolled >= this.topbarCheckpoint) {
+        if (this.topbarCollapsed) {
+          return;
+        }
+        this.topbarCollapsed = true;
+        return this.$topbar.addClass('visible');
+      } else {
+        if (this.topbarCollapsed === false) {
+          return;
+        }
+        this.topbarCollapsed = false;
+        return this.$topbar.removeClass('visible');
+      }
+    };
+    return initScroll();
   });
 
 }).call(this);

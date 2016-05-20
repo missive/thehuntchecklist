@@ -85,10 +85,10 @@ p {
 }
 
 .logo {
-  color: $orangeColor;
   background: -webkit-linear-gradient(left, #F56F4B, #FFAA40);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: $orangeColor;
 }
 
 .text-small {
@@ -106,9 +106,14 @@ p {
   will-change: transform;
   transform: translateY(-60px);
   transition: transform .15s $easing;
-
-  &.show { transform: translateY(0); }
+  &.visible { transform: translateY(0) }
+  .nav-link {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .125em;
+  }
 }
+
 .wrapper {
   width: 85%;
   max-width: 1140px;
@@ -149,6 +154,8 @@ section {
   background: url(../images/hero-bg.png) top center repeat;
   background-size: 1440px 660px;
   min-height: 500px;
+
+  .logo { line-height: 1 }
 }
 
 .box-white {
@@ -194,18 +201,11 @@ section {
 }
 
 .box-white.backstory-post {
-  display: block;
   position: absolute;
   top: 20px; left: 20px;
   margin-right: 20px;
 
   &.hide { display: none }
-  .post-cover { width: 90px; height: 90px }
-
-  .post-excerpt {
-    width: calc(100% - 90px );
-    padding: 15px 20px 15px 15px;
-  }
   
   .button-close {
     position: absolute;
@@ -379,4 +379,8 @@ footer {
     .hour { font-size: 30vw }
     .am, .pm { font-size: 12vw }
   }
+}
+
+@media (max-width: 600px) {
+  .topbar-right, .topbar-left { display: none }
 }
