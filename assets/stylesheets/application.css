@@ -995,17 +995,18 @@ section {
 .box-white {
   position: relative;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.065), 0 1px 1px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
-  -webkit-transition: box-shadow 0.15s cubic-bezier(0.25, 0, 0.25, 1), border-color 0.15s cubic-bezier(0.25, 0, 0.25, 1);
-  transition: box-shadow 0.15s cubic-bezier(0.25, 0, 0.25, 1), border-color 0.15s cubic-bezier(0.25, 0, 0.25, 1); }
+  will-change: box-shadow;
+  -webkit-transition: box-shadow 0.15s cubic-bezier(0.25, 0, 0.25, 1);
+  transition: box-shadow 0.15s cubic-bezier(0.25, 0, 0.25, 1); }
   .box-white:hover {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.075); }
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.125); }
+  .box-white:active {
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.125); }
   .box-white .box-media {
     width: 96px;
-    border-right: 1px solid rgba(0, 0, 0, 0.1); }
+    border-right: 1px solid rgba(0, 0, 0, 0.075); }
     .box-white .box-media img {
       display: block;
       width: 100%;
