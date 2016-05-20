@@ -56,6 +56,13 @@
         $('#timezone').val(moment.tz.guess()).trigger("change");
       }
     }
+    $("a.button-close").click(function(e) {
+      var $container;
+      e.preventDefault();
+      $container = $(e.currentTarget).closest('.removable-box');
+      $container.addClass('hide');
+      return localStorage.setItem("backstory", 'hide');
+    });
     $('#facebook-link').click(function() {
       return window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436');
     });
