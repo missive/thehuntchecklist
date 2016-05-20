@@ -957,7 +957,7 @@ p {
   margin: auto; }
 
 section {
-  margin: 20% 0;
+  margin: 15% 0;
   overflow: hidden; }
 
 .hero {
@@ -967,6 +967,9 @@ section {
 
 .step-1 {
   margin-top: 0; }
+
+.step-3 {
+  margin-bottom: 10%; }
 
 .col-content {
   padding-right: 10%; }
@@ -1065,9 +1068,6 @@ section {
     -o-object-fit: cover;
        object-fit: cover; }
 
-.step-3 {
-  margin-bottom: 10%; }
-
 .content-examples {
   width: 100%;
   padding: 1em;
@@ -1094,9 +1094,10 @@ section {
     border-top: 1px solid rgba(52, 54, 58, 0.1); }
   .finale .share-group .share-link {
     display: inline-block;
+    vertical-align: middle;
     margin: 0 1em; }
     .finale .share-group .share-link img {
-      width: 25px; }
+      width: 26px; }
   .finale .share-link {
     opacity: .65;
     -webkit-transition: opacity 0.15s cubic-bezier(0.25, 0, 0.25, 1);
