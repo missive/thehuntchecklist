@@ -59,14 +59,21 @@
   & > * { display: inline-block }
 }
 
-.topbar-left { position: absolute; left: 0; top: 2px; }
+.topbar-left { position: absolute; left: 0; top: 0; bottom: 0 }
 .topbar-right { position: absolute; right: 0; top: 5px; }
+.topbar-left:after, .topbar-right:after {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 .nav-link {
   display: inline-block;
   color: rgba($textColor, .65);
   font-size: 15px;
   padding: .6em 1.5em .4em;
+  vertical-align: middle;
   &:first-child { padding-left: .5em }
   &.current { color: rgba($textColor, .85) }
   &:hover, &:focus { color: $textColor }
@@ -82,7 +89,8 @@
   color: rgba($textColor, .65);
   font-size: 13px;
   transition-property: border-color, color;
-  transition: .15s;
+  transition-duration: .15s;
+  transition-timing-function: $easing;
 
   &:hover { border-color: rgba($textColor, .33); color: rgba($textColor, .85) }
   .nav-link + & { margin-left: .5em }

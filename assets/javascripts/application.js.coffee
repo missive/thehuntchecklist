@@ -88,4 +88,50 @@ $(document).ready(->
     window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436')
   $('#google-link').click ->
       window.open("https://plus.google.com/share?url=" + encodeURI('http://thehuntchecklist.com/'), 'google-share-dialog', 'width=626,height=436')
+
+  # Tick
+  requestTick = (fn, args...) ->
+    return if @ticking
+    @ticking = true
+
+    window.requestAnimationFrame =>
+      @ticking = false
+      fn.call(this, args...)
+
+  # Scroll
+  initScroll = ->
+    @latestScrolled = window.pageYOffset
+
+    @$topbar = $('.topbar')
+    @topbarCollapsed = undefined
+    @topbarCheckpoint = $('.hero').height() * 0.8
+
+    updateScroll()
+    window.addEventListener('scroll', onScroll)
+    window.addEventListener('resize', onScroll)
+    window.addEventListener('resize', updateCheckpoint)
+
+  updateCheckpoint = ->
+    console.log 'yo'
+    @topbarCheckpoint = $('.hero').height() * 0.8
+
+  onScroll = ->
+    @latestScrolled = window.pageYOffset
+    requestTick(updateScroll)
+
+  updateScroll= ->
+    toggleTopbar()
+
+  # Topbar
+  toggleTopbar= ->
+    if @latestScrolled >= @topbarCheckpoint
+      return if @topbarCollapsed
+      @topbarCollapsed = true
+      @$topbar.addClass('visible')
+    else
+      return if @topbarCollapsed is false
+      @topbarCollapsed = false
+      @$topbar.removeClass('visible')
+      
+  initScroll()
 )
