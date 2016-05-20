@@ -49,6 +49,9 @@
     if (localStorage.getItem("timezone")) {
       $('#timezone').val(localStorage.getItem("timezone")).trigger("change");
     }
+    if (!localStorage.getItem("backstory")) {
+      $('.removable-box').removeClass('hide');
+    }
     if (!localStorage.getItem("timezone")) {
       if (typeof Intl !== 'undefined') {
         $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");
@@ -56,6 +59,13 @@
         $('#timezone').val(moment.tz.guess()).trigger("change");
       }
     }
+    $("a.button-close").click(function(e) {
+      var $container;
+      e.preventDefault();
+      $container = $(e.currentTarget).closest('.removable-box');
+      $container.addClass('hide');
+      return localStorage.setItem("backstory", 'hide');
+    });
     $('#facebook-link').click(function() {
       return window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436');
     });

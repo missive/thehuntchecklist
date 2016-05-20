@@ -54,11 +54,21 @@ $(document).ready(->
   if localStorage.getItem("timezone")
     $('#timezone').val(localStorage.getItem("timezone")).trigger("change")
 
+  if !localStorage.getItem("backstory")
+    $('.removable-box').removeClass('hide')
+
   unless localStorage.getItem("timezone")
     unless typeof Intl is 'undefined'
       $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")
     else
       $('#timezone').val(moment.tz.guess()).trigger("change")
+
+  # General stuff
+  $("a.button-close").click (e)->
+    e.preventDefault()
+    $container = $(e.currentTarget).closest('.removable-box')
+    $container.addClass('hide')
+    localStorage.setItem("backstory", 'hide')
 
   $('#facebook-link').click ->
     window.open("http://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + encodeURI('http://thehuntchecklist.com/'), 'facebook-share-dialog', 'width=626,height=436')

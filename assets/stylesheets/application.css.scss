@@ -122,7 +122,7 @@ p {
 }
 
 section {
-  margin: 20% 0;
+  margin: 15% 0;
   overflow: hidden;
 }
 
@@ -133,9 +133,8 @@ section {
   height: 85%;
 }
 
-.step-1 {
-  margin-top: 0;
-}
+.step-1 { margin-top: 0 }
+.step-3 { margin-bottom: 10% }
 
 .col-content { padding-right: 10% }
 .col-feature { margin-top: 42px }
@@ -153,10 +152,75 @@ section {
 
 // Hero -----------------------------------------------------------------------
 .hero {
+  position: relative;
   background: url(../images/hero-bg.png) top center repeat;
   background-size: 1440px 660px;
+  min-height: 500px;
 }
 
+.backstory-post {
+  display: block;
+  position: absolute;
+  top: 20px; left: 20px;
+  margin-right: 20px;
+
+  &.hide { display: none }
+  .post-cover {
+    width: 90px; height: 90px;
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 5px 0 0 5px;
+    }
+  }
+
+  .post-excerpt {
+    width: calc(100% - 90px );
+    padding: 15px 20px 15px 15px;
+    border-left: 1px solid rgba(#000, .1);
+  }
+
+  .post-note { font-size: 11px }
+  .post-title {
+    margin: .2em 0 .25em;
+    font-size: 18px;
+  }
+
+  .post-subtitle {
+    color: rgba($textColor, .5);
+    font-size: 13px;
+  }
+
+  a.post-link {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+  }
+  
+  .button-close {
+    position: absolute;
+    top: 5px; right: 5px;
+    padding: 5px;
+    opacity: .5;
+    will-change: opacity;
+    transition: opacity .15s $easing;
+    &:hover { opacity: 1 }
+  }
+}
+
+.box-white {
+  background-color: #fff;
+  border: 1px solid rgba(#000, .125);
+  box-shadow: 0 1px 1px rgba(#000, .05);
+  border-radius: 6px;
+  transition: box-shadow .15s $easing, border-color .15s $easing;
+  
+  &:hover {
+    border-color: rgba(#000, .15);
+    box-shadow: 0 4px 12px rgba(#000, .075);
+  }
+
+}
 // Time -----------------------------------------------------------------------
 #time-to-post {
   text-align: center;
@@ -241,7 +305,6 @@ section {
 }
 
 // Content --------------------------------------------------------------------
-.step-3 { margin-bottom: 10% }
 .content-examples {
   width: 100%;
   padding: 1em;
@@ -256,9 +319,9 @@ section {
 .finale {
   margin: 0;
 
-  .wrapper { padding: 10% 0 5%; }
+  .wrapper { padding: 7.5% 0; }
   blockquote {
-    margin: 0;
+    margin: .5em 0 1em;
     color: #1B1C1D;
     font-size: 36px;
     font-weight: 300;
@@ -271,14 +334,14 @@ section {
     margin: auto;
     border-top: 1px solid rgba($textColor, .1);
   }
-  
-  .shares {
-    margin-top: 1.5em;
+
+  .share-group {
     .share-link {
       display: inline-block;
+      vertical-align: middle;
       margin: 0 1em;
       img {
-        width: 25px;
+        width: 26px;
       }
     }
   }
@@ -295,6 +358,7 @@ section {
 
 footer {
   padding: 2em 0;
+  img { margin-bottom: .5em }
 }
 
 // Media Queries --------------------------------------------------------------
