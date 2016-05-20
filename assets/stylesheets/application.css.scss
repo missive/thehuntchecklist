@@ -157,16 +157,22 @@ section {
   min-height: 500px;
 }
 
-.backstory-post {
-  display: block;
-  position: absolute;
-  top: 20px; left: 20px;
-  margin-right: 20px;
-
-  &.hide { display: none }
-  .post-cover {
-    width: 90px; height: 90px;
-
+.box-white {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(#000, .125);
+  box-shadow: 0 1px 1px rgba(#000, .05);
+  border-radius: 6px;
+  transition: box-shadow .15s $easing, border-color .15s $easing;
+  
+  &:hover {
+    border-color: rgba(#000, .15);
+    box-shadow: 0 4px 12px rgba(#000, .075);
+  }
+  
+  .box-media {
+    width: 96px;
+    border-right: 1px solid rgba(#000, .1);
     img {
       display: block;
       width: 100%;
@@ -174,26 +180,39 @@ section {
     }
   }
 
-  .post-excerpt {
-    width: calc(100% - 90px );
-    padding: 15px 20px 15px 15px;
-    border-left: 1px solid rgba(#000, .1);
+  .box-content {
+    width: calc(100% - 96px);
+    padding: 20px;
   }
-
-  .post-note { font-size: 11px }
-  .post-title {
+  .box-note { font-size: 11px }
+  .box-title {
     margin: .2em 0 .25em;
     font-size: 18px;
   }
 
-  .post-subtitle {
+  .box-subtitle {
     color: rgba($textColor, .5);
     font-size: 13px;
   }
-
-  a.post-link {
+  
+  a.box-link {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
+  }
+}
+
+.box-white.backstory-post {
+  display: block;
+  position: absolute;
+  top: 20px; left: 20px;
+  margin-right: 20px;
+
+  &.hide { display: none }
+  .post-cover { width: 90px; height: 90px }
+
+  .post-excerpt {
+    width: calc(100% - 90px );
+    padding: 15px 20px 15px 15px;
   }
   
   .button-close {
@@ -207,19 +226,6 @@ section {
   }
 }
 
-.box-white {
-  background-color: #fff;
-  border: 1px solid rgba(#000, .125);
-  box-shadow: 0 1px 1px rgba(#000, .05);
-  border-radius: 6px;
-  transition: box-shadow .15s $easing, border-color .15s $easing;
-  
-  &:hover {
-    border-color: rgba(#000, .15);
-    box-shadow: 0 4px 12px rgba(#000, .075);
-  }
-
-}
 // Time -----------------------------------------------------------------------
 #time-to-post {
   text-align: center;

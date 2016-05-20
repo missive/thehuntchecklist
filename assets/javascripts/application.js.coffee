@@ -20,6 +20,14 @@ $(document).ready(->
     )
   )
 
+  $('#ph-content-editable .ph-title').on('blur keyup paste input', ->
+    localStorage.setItem("ph-title", $(this).html())
+  )
+
+  $('#ph-content-editable .ph-subtitle').on('blur keyup paste input', ->
+    localStorage.setItem("ph-subtitle", $(this).html())
+  )
+
   # Thumbnail
   $("#thumbnail-input").change(->
     if (this.files && this.files[0])
@@ -56,6 +64,12 @@ $(document).ready(->
 
   if !localStorage.getItem("backstory")
     $('.removable-box').removeClass('hide')
+
+  if localStorage.getItem("ph-title")
+    $('#ph-content-editable .ph-title').html(localStorage.getItem("ph-title"))
+
+  if localStorage.getItem("ph-subtitle")
+    $('#ph-content-editable .ph-subtitle').html(localStorage.getItem("ph-subtitle"))
 
   unless localStorage.getItem("timezone")
     unless typeof Intl is 'undefined'
