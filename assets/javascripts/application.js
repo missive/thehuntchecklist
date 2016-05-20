@@ -21,6 +21,12 @@
       time = california.clone().tz($(this).val()).format('LT').split(" ");
       return $("#time-to-post").html("<div class='col'><span class='hour'>" + time[0] + "</span></div><div class='col'><span class='am " + (time[1] === 'AM' ? 'selected' : '') + "'>AM</span><span class='pm " + (time[1] === 'PM' ? 'selected' : '') + "'>PM</span></div");
     });
+    $('#ph-content-editable .ph-title').on('blur keyup paste input', function() {
+      return localStorage.setItem("ph-title", $(this).html());
+    });
+    $('#ph-content-editable .ph-subtitle').on('blur keyup paste input', function() {
+      return localStorage.setItem("ph-subtitle", $(this).html());
+    });
     $("#thumbnail-input").change(function() {
       if (this.files && this.files[0]) {
         return drop(this.files[0]);
@@ -51,6 +57,12 @@
     }
     if (!localStorage.getItem("backstory")) {
       $('.removable-box').removeClass('hide');
+    }
+    if (localStorage.getItem("ph-title")) {
+      $('#ph-content-editable .ph-title').html(localStorage.getItem("ph-title"));
+    }
+    if (localStorage.getItem("ph-subtitle")) {
+      $('#ph-content-editable .ph-subtitle').html(localStorage.getItem("ph-subtitle"));
     }
     if (!localStorage.getItem("timezone")) {
       if (typeof Intl !== 'undefined') {
