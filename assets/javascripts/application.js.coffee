@@ -54,6 +54,9 @@ $(document).ready(->
   if localStorage.getItem("timezone")
     $('#timezone').val(localStorage.getItem("timezone")).trigger("change")
 
+  if !localStorage.getItem("backstory")
+    $('.removable-box').removeClass('hide')
+
   unless localStorage.getItem("timezone")
     unless typeof Intl is 'undefined'
       $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change")

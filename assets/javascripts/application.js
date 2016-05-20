@@ -49,6 +49,9 @@
     if (localStorage.getItem("timezone")) {
       $('#timezone').val(localStorage.getItem("timezone")).trigger("change");
     }
+    if (!localStorage.getItem("backstory")) {
+      $('.removable-box').removeClass('hide');
+    }
     if (!localStorage.getItem("timezone")) {
       if (typeof Intl !== 'undefined') {
         $('#timezone').val(Intl.DateTimeFormat().resolvedOptions().timeZone).trigger("change");

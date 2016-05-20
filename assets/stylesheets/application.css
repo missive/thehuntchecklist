@@ -858,7 +858,7 @@ html, body {
   height: 100%; }
 
 body {
-  font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
   font-size: 14px; }
 
 a {
@@ -877,7 +877,7 @@ h1, h2, h3, h4 {
 
 h1 {
   margin-bottom: .25em;
-  font-family: "ars-maquette-pro", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+  font-family: "ars-maquette-pro", "proxima-nova", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
   font-size: 72px;
   font-weight: 900; }
 
