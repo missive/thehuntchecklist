@@ -112,7 +112,6 @@ $(document).ready(->
     window.addEventListener('resize', updateCheckpoint)
 
   updateCheckpoint = ->
-    console.log 'yo'
     @topbarCheckpoint = $('.hero').height() * 0.8
 
   onScroll = ->
@@ -132,6 +131,6 @@ $(document).ready(->
       return if @topbarCollapsed is false
       @topbarCollapsed = false
       @$topbar.removeClass('visible')
-      
+
   initScroll()
 )
