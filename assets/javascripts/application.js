@@ -111,7 +111,6 @@
       return window.addEventListener('resize', updateCheckpoint);
     };
     updateCheckpoint = function() {
-      console.log('yo');
       return this.topbarCheckpoint = $('.hero').height() * 0.8;
     };
     onScroll = function() {
